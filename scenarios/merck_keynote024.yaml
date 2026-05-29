@@ -1,0 +1,164 @@
+# Merck KEYNOTE-024 Enrichment Decision
+# The winning decision that made Keytruda the world's best-selling drug
+
+scenario_id: merck-keynote-024
+title: "Merck Pembrolizumab First-Line NSCLC: Enrichment Strategy"
+decision_date: "2014-04-01"
+category: trial_design
+
+context: |
+  You are the executive leadership team of Merck & Co. in April 2014. Pembrolizumab
+  (Keytruda), your anti-PD-1 antibody, is approximately 18-24 months behind BMS's
+  nivolumab (Opdivo) in development. BMS has already committed to an all-comers
+  pivotal trial for first-line NSCLC (CheckMate-026) — no biomarker enrichment.
+
+  This is both a threat and an opportunity. If BMS's all-comers strategy succeeds,
+  Merck will be a fast-follower at best. But if BMS's strategy fails because it
+  dilutes the treatment effect across PD-L1 negative patients who don't benefit,
+  a smart enrichment strategy could win the market.
+
+  The KEYNOTE-001 Phase 1 expansion has now enrolled hundreds of patients with
+  PD-L1 IHC data. The PD-L1 response gradient is becoming clearer.
+
+  You MUST make a decision using ONLY information available before April 2014.
+
+options:
+  - id: all_comers
+    label: "All-Comers (No Enrichment)"
+    description: |
+      Match BMS's all-comers approach. Fastest enrollment. Broadest label if
+      successful. But you're 18 months behind — you need differentiation.
+
+  - id: enrich_low
+    label: "PD-L1 ≥1% (Low Threshold)"
+    description: |
+      Enrich for any PD-L1 expression ≥1%. Captures ~60% of patients. Moderate
+      differentiation from BMS but still broad population.
+
+  - id: enrich_high
+    label: "PD-L1 TPS ≥50% (High Threshold)"
+    description: |
+      Enrich for PD-L1 Tumor Proportion Score ≥50%. Captures ~25-30% of patients.
+      Maximum differentiation from BMS. Smaller market but much higher likelihood
+      of a strongly positive trial. This is the contrarian bet.
+
+  - id: adaptive
+    label: "Adaptive/Biomarker-Stratified"
+    description: |
+      Design with biomarker-stratified randomization. Generates biomarker data
+      alongside efficacy. More complex but preserves optionality.
+
+constitutional_constraints:
+  - "You may NOT reference any clinical trial data, publication, or event after April 2014."
+  - "You may NOT mention KEYNOTE-024 results, CheckMate-026 results, or any post-2014 outcome data."
+  - "You may NOT reference the eventual outcome of this decision."
+  - "If you catch yourself using future knowledge, you MUST explicitly flag it and discard that reasoning."
+
+evidence:
+  - type: internal_data
+    source: "Merck KEYNOTE-001 expansion cohort data"
+    date: "2014-02-15"
+    content: |
+      N=~500 NSCLC patients across KEYNOTE-001 expansion cohorts with PD-L1 IHC data.
+      Clear PD-L1 response gradient observed:
+      - TPS ≥50%: ORR ~45%, median PFS ~6.3 months
+      - TPS 1-49%: ORR ~17%, median PFS ~3.5 months
+      - TPS <1%: ORR ~9%, median PFS ~2.0 months
+      PD-L1 assay (22C3 pharmDx) is being co-developed with Dako.
+      Preliminary concordance data suggests the assay is reproducible.
+
+  - type: competitive_intel
+    source: "BMS program intelligence"
+    date: "2014-03-01"
+    content: |
+      - BMS has committed to CheckMate-026: all-comers pivotal trial in 1L NSCLC
+      - BMS is NOT enriching for PD-L1 expression
+      - BMS's enrollment is well underway; expected readout ~2016
+      - BMS has a ~18-24 month head start in the 1L NSCLC race
+      - If BMS succeeds with all-comers, Merck's 1L opportunity is severely limited
+
+  - type: external_data
+    source: "Published literature pre-April 2014"
+    date: "2014-03-15"
+    content: |
+      - Garon et al. (2014, submitted): KEYNOTE-001 shows PD-L1 as a strong predictive biomarker
+      - Herbst et al. (2013): PD-L1 expression correlates with anti-PD-1 response
+      - The field is shifting toward PD-L1 as a real predictive marker, but no consensus on threshold
+      - Multiple PD-L1 assays (28-8, 22C3, SP142) — cross-assay concordance still debated
+
+  - type: market_data
+    source: "Merck commercial analysis"
+    date: "2014-02-28"
+    content: |
+      - 1L NSCLC market: ~$8-12B at peak for first-mover with broad label
+      - If BMS wins all-comers: Merck is a fast-follower, limited pricing power
+      - If BMS fails all-comers AND Merck has an enriched positive trial: Merck owns the market
+      - TPS ≥50% population: ~25-30% of NSCLC → ~$2-4B at peak
+      - TPS ≥1% population: ~60% of NSCLC → ~$5-8B at peak
+      - Speed premium: Being first in 1L NSCLC (even with a narrower label) is worth
+        substantial commercial advantage
+
+roles:
+  - id: ceo
+    title: "Chief Executive Officer"
+    mandate: |
+      You are the CEO of Merck. Your job is to make the FINAL decision after hearing
+      all arguments. You must weigh commercial opportunity, scientific risk, competitive
+      dynamics, and organizational philosophy. You commit to a single option with a
+      calibrated probability of success (0-100%).
+    synthesis_role: true
+
+  - id: rnd
+    title: "SVP Research & Development"
+    mandate: |
+      You are the head of R&D. You prioritize scientific rigor and data quality.
+      KEYNOTE-001 gives you a much richer dataset than BMS had in 2012. The PD-L1
+      gradient is real and quantifiable. You believe the science supports enrichment
+      but want the right threshold.
+
+  - id: commercial
+    title: "SVP Commercial"
+    mandate: |
+      You are the head of Commercial. You are terrified of ceding the 1L market to BMS.
+      You want the broadest possible label. But you also recognize that if BMS fails
+      with all-comers and Merck succeeds with enrichment, the narrative flips entirely.
+      Think about second-order effects: what does BMS's failure do for Merck's positioning?
+
+  - id: regulatory
+    title: "SVP Regulatory Affairs"
+    mandate: |
+      You are the head of Regulatory. You prioritize approvability and clean labels.
+      An enriched trial with a strong positive result gives you a much cleaner regulatory
+      narrative than a marginal all-comers win. You are also thinking about companion
+      diagnostic co-approval — the 22C3 assay development is on track.
+
+  - id: ci
+    title: "VP Competitive Intelligence"
+    mandate: |
+      You are the head of Competitive Intelligence. Your primary focus is BMS's
+      CheckMate-026 strategy. BMS chose all-comers. This is THE critical piece of
+      competitive intelligence. If BMS is wrong about all-comers, Merck can steal the
+      entire market with a smart enrichment play. Think about the asymmetric opportunity.
+
+  - id: contrarian
+    title: "Contrarian Board Member"
+    mandate: |
+      You are a Contrarian Board Member. Your JOB is to find the asymmetric position
+      that others are missing. BMS already went all-comers. If Merck does the same,
+      Merck loses — it's that simple. You must make the strongest possible case for
+      differentiation. The contrarian play here IS the enrichment play.
+
+debate_config:
+  rounds: 2
+  steel_man_required: true
+  delphi_anonymize: false
+  ceo_synthesis_round: true
+
+models:
+  primary: "zai-org-glm-5-1"
+  secondary: "grok-4-20"
+
+historical_outcome:
+  actual_decision: "enrich_high"
+  result: "Keytruda became the world's best-selling drug, >$25B/year. CheckMate-026 (BMS all-comers) failed."
+  vindicated_answer: "enrich_high"

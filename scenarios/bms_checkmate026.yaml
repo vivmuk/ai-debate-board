@@ -1,0 +1,173 @@
+# BMS CheckMate-026 Enrichment Decision
+# The pivotal decision that cost BMS the first-line NSCLC market
+
+scenario_id: bms-checkmate-026
+title: "BMS Nivolumab First-Line NSCLC: Enrichment Strategy"
+decision_date: "2012-06-01"
+category: trial_design
+
+context: |
+  You are the executive leadership team of Bristol-Myers Squibb in June 2012. Nivolumab (Opdivo),
+  your anti-PD-1 antibody, has shown remarkable single-agent activity in Phase 1 trials across
+  multiple tumor types. You are now designing the pivotal Phase 3 trial for first-line (1L)
+  non-small cell lung cancer (NSCLC) — the biggest commercial opportunity in oncology.
+
+  Your competitor Merck is 12-18 months behind with pembrolizumab (Keytruda). Speed to market
+  is critical. But the biomarker landscape is immature.
+
+  Key data available as of June 2012:
+  - Phase 1 NSCLC: ~42 patients with PD-L1 biomarker data
+  - ORR in PD-L1+ patients: ~36% vs ~14% in PD-L1- (small numbers, wide CIs)
+  - PD-L1 assay: No validated companion diagnostic; multiple assays with poor concordance
+  - Merck is rumored to be exploring PD-L1 enrichment but has not committed
+  - The IO field consensus: "biomarker isn't reliable enough yet"
+  - BMS internal philosophy: "immunotherapy should benefit all patients"
+
+  You MUST make a decision using ONLY information available before June 2012.
+  Any knowledge of events after this date is STRICTLY FORBIDDEN.
+
+options:
+  - id: all_comers
+    label: "All-Comers (No Enrichment)"
+    description: |
+      Enroll all NSCLC patients regardless of PD-L1 status. Fastest enrollment,
+      broadest label if successful. Aligns with BMS philosophy that immunotherapy
+      benefits everyone.
+
+  - id: enrich_low
+    label: "PD-L1 ≥1% (Low Threshold)"
+    description: |
+      Enrich for any PD-L1 expression ≥1%. Captures ~60% of NSCLC patients.
+      Moderate enrichment with still-large market. Requires validated assay.
+
+  - id: enrich_mid
+    label: "PD-L1 ≥5% (Mid Threshold)"
+    description: |
+      Enrich for PD-L1 expression ≥5%. Captures ~40% of patients. Stronger
+      signal-to-noise but smaller addressable population.
+
+  - id: enrich_high
+    label: "PD-L1 ≥50% (High Threshold)"
+    description: |
+      Enrich for PD-L1 expression ≥50%. Captures ~20-25% of patients. Maximum
+      signal-to-noise but smallest market. Risk of niche label.
+
+  - id: adaptive
+    label: "Adaptive/Biomarker-Stratified"
+    description: |
+      Design with a biomarker-stratified randomization. All patients enrolled,
+      but pre-specified analysis by PD-L1 subgroup. Slower but generates
+      biomarker data alongside efficacy.
+
+constitutional_constraints:
+  - "You may NOT reference any clinical trial data, publication, or event after June 2012."
+  - "You may NOT mention CheckMate-026 results, KEYNOTE-024, or any post-2012 PD-L1 data."
+  - "You may NOT reference the eventual outcome of this decision."
+  - "If you catch yourself using future knowledge, you MUST explicitly flag it and discard that reasoning."
+
+evidence:
+  - type: internal_data
+    source: "BMS Phase 1 NSCLC expansion cohort"
+    date: "2012-03-15"
+    content: |
+      N=42 NSCLC patients with PD-L1 IHC data.
+      ORR by PD-L1 status:
+      - PD-L1 positive (≥5%): 10/28 (36%)
+      - PD-L1 negative (<5%): 2/14 (14%)
+      Confidence intervals are wide due to small sample size.
+      No validated companion diagnostic exists.
+
+  - type: external_data
+    source: "Published literature pre-June 2012"
+    date: "2012-05-01"
+    content: |
+      - Herbst et al. (2012): PD-L1 expression varies by assay (28-8 vs SP142)
+      - Topalian et al. (NEJM 2012): Anti-PD-1 shows activity across tumor types
+      - Brahmer et al. (NEJM 2012): Safety profile of anti-PD-1 is manageable
+      - No consensus on PD-L1 as a predictive biomarker in NSCLC
+
+  - type: competitive_intel
+    source: "Industry intelligence as of June 2012"
+    date: "2012-06-01"
+    content: |
+      - Merck is 12-18 months behind with pembrolizumab
+      - Rumors that Merck is exploring PD-L1 enrichment strategy
+      - Roate/Genentech atezolizumab is 24+ months behind
+      - No competitor has committed to an enriched pivotal trial yet
+
+  - type: market_data
+    source: "BMS commercial analysis"
+    date: "2012-05-15"
+    content: |
+      - 1L NSCLC: ~1.5M patients globally per year
+      - If all-comers: addressable market ~$8-12B at peak
+      - If PD-L1 ≥50%: addressable market ~$2-3B at peak
+      - Speed premium: First-to-market advantage estimated at 18-24 months of
+        exclusivity worth ~$3-5B in cumulative revenue
+      - Assay development timeline: 12-18 months for validated CDx
+
+roles:
+  - id: ceo
+    title: "Chief Executive Officer"
+    mandate: |
+      You are the CEO of BMS. Your job is to make the FINAL decision after hearing
+      all arguments. You must weigh commercial opportunity, scientific risk, competitive
+      dynamics, and organizational philosophy. You commit to a single option with a
+      calibrated probability of success (0-100%).
+    synthesis_role: true
+
+  - id: rnd
+    title: "SVP Research & Development"
+    mandate: |
+      You are the head of R&D. You prioritize scientific rigor, data quality, and
+      the strength of the evidence base. You are skeptical of decisions that rely
+      on thin biomarker data. You believe in generating robust evidence before
+      committing billions to a pivotal trial.
+
+  - id: commercial
+    title: "SVP Commercial"
+    mandate: |
+      You are the head of Commercial. You prioritize speed-to-market, label breadth,
+      and competitive positioning. Every month of delay costs market share. You want
+      the broadest possible label and the fastest possible enrollment. You are
+      concerned that enrichment reduces the addressable market.
+
+  - id: regulatory
+    title: "SVP Regulatory Affairs"
+    mandate: |
+      You are the head of Regulatory. You prioritize approvability, label clarity,
+      and risk-benefit profiles. You are concerned about enrolling patients who
+      may not benefit (ethics). You are also concerned about the regulatory pathway
+      for a novel biomarker without a validated companion diagnostic.
+
+  - id: ci
+    title: "VP Competitive Intelligence"
+    mandate: |
+      You are the head of Competitive Intelligence. You monitor competitor activities
+      and market dynamics. You are specifically tracking Merck's pembrolizumab program
+      and any signals about their enrichment strategy. You think about second-order
+      effects: what happens to BMS's position if Merck chooses differently?
+
+  - id: contrarian
+    title: "Contrarian Board Member"
+    mandate: |
+      You are a Contrarian Board Member. Your JOB is to find the asymmetric position
+      that others are missing. You must argue AGAINST the emerging consensus. If
+      everyone is leaning toward all-comers, you must make the strongest possible
+      case for enrichment — and vice versa. You are explicitly tasked with finding
+      the blind spot. You are not bound by organizational philosophy or sunk costs.
+
+debate_config:
+  rounds: 3
+  steel_man_required: true
+  delphi_anonymize: false
+  ceo_synthesis_round: true
+
+models:
+  primary: "zai-org-glm-5-1"
+  secondary: "grok-4-20"
+
+historical_outcome:
+  actual_decision: "all_comers"
+  result: "Failed Phase 3 (HR 1.15, missed primary endpoint). BMS lost first-line NSCLC market to Merck."
+  vindicated_answer: "enrich_mid or enrich_high"
