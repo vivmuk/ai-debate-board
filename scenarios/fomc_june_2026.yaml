@@ -1,0 +1,175 @@
+# Fed Interest Rate Decision: June 2026 FOMC Meeting
+# Forward-looking prediction — to be scored after June 17, 2026
+
+scenario_id: fomc-june-2026-rate-decision
+title: "Will the Fed Cut Rates at the June 2026 FOMC Meeting?"
+decision_date: "2026-05-29"
+prediction_deadline: "2026-06-17"
+category: macro_economics
+forward_looking: true
+
+context: |
+  You are the investment committee of a macro hedge fund. The Federal Reserve's
+  next FOMC meeting is June 16-17, 2026. The question is whether the Fed will
+  announce a rate cut at this meeting.
+
+  Current federal funds rate target: 4.50-4.75% (as of May 2026)
+  Last FOMC meeting (May 2026): Held rates steady. Statement noted "ongoing
+  progress on disinflation" but "labor market remains resilient."
+  Fed Funds futures implied probability of a June cut: ~35%
+
+  You must make a decision using ONLY information available before May 30, 2026.
+
+options:
+  - id: cut_25bp
+    label: "Cut 25bps (to 4.25-4.50%)"
+    description: |
+      The Fed cuts by 25 basis points. Signals confidence in disinflation
+      trajectory. Probably accompanied by cautious forward guidance.
+
+  - id: hold
+    label: "Hold (4.50-4.75%)"
+    description: |
+      The Fed holds steady. Wants more data before committing to a cut.
+      Maintains optionality for July or September.
+
+  - id: cut_50bp
+    label: "Cut 50bps (to 4.00-4.25%)"
+    description: |
+      Aggressive cut signaling urgency about labor market deterioration
+      or financial stress. Very unlikely but not impossible.
+
+constitutional_constraints:
+  - "You may NOT reference any economic data, Fed speeches, or events after May 29, 2026."
+  - "You may NOT reference the actual outcome of the June 2026 FOMC meeting."
+  - "If you catch yourself using future knowledge, you MUST explicitly flag it and discard that reasoning."
+
+evidence:
+  - type: macro_data
+    source: "Bureau of Labor Statistics — CPI Report"
+    date: "2026-05-14"
+    content: |
+      April 2026 CPI (released May 14):
+      - Headline CPI: +2.8% YoY (vs 2.9% expected, down from 3.1% in March)
+      - Core CPI: +3.0% YoY (vs 3.1% expected, down from 3.3% in March)
+      - Shelter inflation continuing to moderate: +4.1% YoY (down from 4.6%)
+      - Goods deflation persists: -0.8% YoY
+      - This was the third consecutive month of declining core inflation
+
+  - type: macro_data
+    source: "Bureau of Labor Statistics — Employment Report"
+    date: "2026-05-08"
+    content: |
+      April 2026 Non-Farm Payrolls (released May 8):
+      - NFP: +175K (vs +200K expected, down from +228K revised March)
+      - Unemployment rate: 4.2% (up from 4.1%, highest since October 2024)
+      - Average hourly earnings: +3.6% YoY (down from 3.9%, cooling trend)
+      - Labor force participation: 62.7% (flat)
+      - Underemployment (U-6): 7.8% (up from 7.5%)
+
+  - type: fed_communication
+    source: "Chair Powell Press Conference — May 2026 FOMC"
+    date: "2026-05-07"
+    content: |
+      Key quotes from Powell's May press conference:
+      - "We are gaining confidence that inflation is on a sustainable path toward 2%."
+      - "The labor market has cooled somewhat but remains healthy by historical standards."
+      - "We do not need to see inflation at 2% to begin easing policy, but we need more confidence it's heading there sustainably."
+      - "We're attentive to both sides of our dual mandate."
+      - When asked about June: "We will be data dependent. Every meeting is a live meeting."
+
+  - type: market_data
+    source: "CME FedWatch Tool & Bond Market"
+    date: "2026-05-28"
+    content: |
+      - Fed Funds futures pricing: ~35% probability of 25bp cut in June
+      - 2-year Treasury yield: 3.92% (down from 4.15% a month ago)
+      - 10-year Treasury yield: 4.08% (curve slightly inverted at front, normalizing)
+      - 10yr-2yr spread: +16bps (no longer inverted)
+      - SOFR: 4.68%
+      - Market is pricing ~100bps of cuts by end of 2026
+
+  - type: macro_data
+    source: "GDP & Economic Activity"
+    date: "2026-05-29"
+    content: |
+      - Q1 2026 GDP (advance): +1.8% annualized (vs +2.2% expected)
+      - Consumer spending: +1.2% (weakest since mid-2023)
+      - Business investment: +3.1% (AI-related capex driving strength)
+      - ISM Manufacturing: 48.7 (contraction territory, 3rd consecutive month below 50)
+      - ISM Services: 51.2 (barely expanding)
+      - Initial jobless claims trending up: 4-week average 235K (from 210K in March)
+
+  - type: geopolitical
+    source: "Geopolitical Risk Assessment"
+    date: "2026-05-25"
+    content: |
+      - US-China trade tensions: Moderate. Recent tariff negotiations reduced
+        some barriers but core tech restrictions remain.
+      - Oil prices: $72/bbl WTI (stable, no supply shock)
+      - No major geopolitical crisis affecting US economic outlook
+      - EU growth slowing (0.8% Q1), which may push ECB to cut — could influence
+        Fed coordination dynamics
+
+roles:
+  - id: ceo
+    title: "Chief Investment Officer"
+    mandate: |
+      You are the CIO. Your job is to make the FINAL call after hearing all arguments.
+      You must commit to a single scenario with a calibrated probability. Your track
+      record depends on calibration — not just being right, but being right at the
+      right confidence level.
+    synthesis_role: true
+
+  - id: bull
+    title: "Bull Case Analyst"
+    mandate: |
+      You are the Bull Case analyst. Your job is to make the strongest possible
+      case for a rate cut. You believe the data supports easing. Find every reason
+      the Fed SHOULD cut in June. You must still steel-man the opposing view before
+      rebutting it.
+
+  - id: bear
+    title: "Bear Case Analyst"
+    mandate: |
+      You are the Bear Case analyst. Your job is to make the strongest possible
+      case for holding rates. You believe the Fed should be patient. Find every
+      reason the Fed SHOULD NOT cut in June. You must still steel-man the opposing
+      view before rebutting it.
+
+  - id: macro
+    title: "Macro Strategist"
+    mandate: |
+      You are the Macro Strategist. You think in terms of the full macro picture:
+      growth, inflation, employment, financial conditions, and their interactions.
+      You're less interested in the binary cut/hold question and more interested
+      in what the macro data implies about the optimal policy path. You may find
+      that the data supports a cut but the timing is wrong, or vice versa.
+
+  - id: risk
+    title: "Risk Manager"
+    mandate: |
+      You are the Risk Manager. You think about tail risks, scenarios where the
+      consensus is wrong, and asymmetric payoffs. If the market is pricing 35%
+      and you think it's 55%, that's actionable. If the market says 35% and you
+      say 40%, that's not. You care about where our view differs from market
+      pricing and why. You also care about what happens if we're wrong.
+
+  - id: contrarian
+    title: "Contrarian Trader"
+    mandate: |
+      You are the Contrarian Trader. Your JOB is to find the non-consensus view
+      that others are missing. The market is pricing 35% for a cut. If the true
+      probability is very different from 35%, there's alpha. You might argue for
+      50bps, you might argue for hold with high conviction, or you might argue
+      the whole framing is wrong. Surprise us.
+
+debate_config:
+  rounds: 2
+  steel_man_required: true
+  delphi_anonymize: false
+  ceo_synthesis_round: true
+
+models:
+  primary: "zai-org-glm-5-1"
+  secondary: "grok-4-20"
